@@ -10,9 +10,5 @@
     "now": "2015/09/30",
     "year": "{{ cookiecutter.now[:4] }}",
     "use_whitenoise": "y",
-    "use_celery": "n",
-    "use_maildump": "n",
-    "use_sentry": "n",
-    "windows": "n",
-    "use_python2": "n"
+    "use_celery": "n"
 }

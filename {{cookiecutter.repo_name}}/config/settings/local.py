@@ -25,10 +25,7 @@ SECRET_KEY = env("DJANGO_SECRET_KEY", default='CHANGEME!!!')
 # ------------------------------------------------------------------------------
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
-{%if cookiecutter.use_maildump == "n" -%}
-EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND',
-                    default='django.core.mail.backends.console.EmailBackend')
-{%- endif %}
+EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.console.EmailBackend')
 
 # CACHING
 # ------------------------------------------------------------------------------

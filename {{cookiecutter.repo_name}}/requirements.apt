@@ -28,7 +28,6 @@ python-setuptools
 python3-dev
 python-virtualenv
 python-pip
-firefox
 automake
 libtool
 libreadline6

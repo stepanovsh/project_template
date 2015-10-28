@@ -2,13 +2,6 @@
 #	production that isn't in development.
 -r base.txt
 
-{% if cookiecutter.windows == 'y' -%}
-# Python-PostgreSQL Database Adapter
-# If using Win for dev, this assumes Unix in prod
-# ------------------------------------------------
-psycopg2==2.6.1
-{%- endif %}
-
 # WSGI Handler
 # ------------------------------------------------
 gevent==1.0.2
@@ -25,9 +18,3 @@ Collectfast==0.2.3
 # Mailgun Support
 # ---------------
 django-mailgun==0.7.2
-
-{% if cookiecutter.use_sentry == "y" -%}
-# Raven is the Sentry client
-# --------------------------
-raven
-{%- endif %}
