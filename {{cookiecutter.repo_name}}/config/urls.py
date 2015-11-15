@@ -7,7 +7,6 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
-
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name="home"),
     url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name="about"),
@@ -15,11 +14,15 @@ urlpatterns = [
     # Django Admin, use {% raw %}{% url 'admin:index' %}{% endraw %}
     url(settings.ADMIN_URL, include(admin.site.urls)),
 
-    # User management
     {% if cookiecutter.use_custom_user_model.lower() == 'y' -%}
+    # User management
     url(r'^users/', include("{{ cookiecutter.repo_name }}.users.urls", namespace="users")),
+    {% else %}
     {%- endif %}
+    {% if cookiecutter.use_allauth == 'y' -%}
     url(r'^accounts/', include('allauth.urls')),
+    {% else %}
+    {%- endif %}
 
     # Your stuff: custom urls includes go here
 
