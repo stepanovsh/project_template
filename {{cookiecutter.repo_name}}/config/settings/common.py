@@ -43,9 +43,6 @@ THIRD_PARTY_APPS = (
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
-    {% if cookiecutter.use_custom_user_model.lower() == 'y' -%}
-    '{{ cookiecutter.repo_name }}.users',  # custom users app
-    {%- endif %}
     # Your stuff: custom apps go here
 )
 
@@ -221,6 +218,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 {% if cookiecutter.use_custom_user_model == 'y' -%}
 # Custom user app defaults
 # Select the correct user model
+INSTALLED_APPS += ('{{ cookiecutter.repo_name }}.users',)
 AUTH_USER_MODEL = 'users.User'
 LOGIN_REDIRECT_URL = 'users:redirect'
 LOGIN_URL = 'account_login'
