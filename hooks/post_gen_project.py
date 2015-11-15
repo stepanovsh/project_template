@@ -131,7 +131,7 @@ if '{{ cookiecutter.use_celery }}'.lower() == 'n':
 # copy_doc_files(PROJECT_DIRECTORY)
 
 def remove_user_app(project_directory):
-    """Removes the taskapp if celery isn't going to be used"""
+    """Removes the user app an templates if custom user model isn't going to be used"""
     # Determine the local_setting_file_location
     user_app_location = os.path.join(
         PROJECT_DIRECTORY,
@@ -147,3 +147,16 @@ def remove_user_app(project_directory):
 
 if '{{ cookiecutter.use_custom_user_model }}'.lower() == 'n':
     remove_user_app(PROJECT_DIRECTORY)
+
+def remove_allauth_tpl(project_directory):
+    """Removes the allauth templates if alauth isn't going to be used"""
+    # Determine the local_setting_file_location
+
+    user_templates_location = os.path.join(
+        PROJECT_DIRECTORY,
+        '{{ cookiecutter.repo_name }}/templates/account'
+    )
+    shutil.rmtree(user_templates_location)
+
+if '{{ cookiecutter.use_allauth }}'.lower() == 'n':
+    remove_allauth_tpl(PROJECT_DIRECTORY)
