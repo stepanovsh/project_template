@@ -141,7 +141,7 @@ def remove_user_app(project_directory):
 
     user_templates_location = os.path.join(
         PROJECT_DIRECTORY,
-        '{{ cookiecutter.repo_name }/templates/users'
+        '{{ cookiecutter.repo_name }}/templates/users'
     )
     shutil.rmtree(user_templates_location)
 
