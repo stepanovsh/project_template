@@ -43,7 +43,9 @@ THIRD_PARTY_APPS = (
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
+    {% if cookiecutter.use_custom_user_model != 'y' -%}
     '{{ cookiecutter.repo_name }}.users',  # custom users app
+    {%- endif %}
     # Your stuff: custom apps go here
 )
 
