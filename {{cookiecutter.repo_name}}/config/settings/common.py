@@ -204,7 +204,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # ------------------------------------------------------------------------------
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
 )
 
 {% if cookiecutter.use_allauth == 'y' -%}
@@ -214,6 +213,7 @@ INSTALLED_APPS += (
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
     )
+AUTHENTICATION_BACKENDS += ('allauth.account.auth_backends.AuthenticationBackend',)
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
