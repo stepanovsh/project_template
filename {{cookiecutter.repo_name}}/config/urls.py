@@ -16,7 +16,7 @@ urlpatterns = [
     url(settings.ADMIN_URL, include(admin.site.urls)),
 
     # User management
-    {% if cookiecutter.use_custom_user_model != 'y' -%}
+    {% if cookiecutter.use_custom_user_model.lower() == 'y' -%}
     url(r'^users/', include("{{ cookiecutter.repo_name }}.users.urls", namespace="users")),
     {%- endif %}
     url(r'^accounts/', include('allauth.urls')),
