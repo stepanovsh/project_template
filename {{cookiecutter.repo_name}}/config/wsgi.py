@@ -16,9 +16,6 @@ framework.
 import os
 
 from django.core.wsgi import get_wsgi_application
-{% if cookiecutter.use_whitenoise == 'y' -%}
-from whitenoise.django import DjangoWhiteNoise
-{%- endif %}
 {% if cookiecutter.use_sentry == "y" -%}
 if os.environ.get("DJANGO_SETTINGS_MODULE") == "config.settings.production":
     from raven.contrib.django.raven_compat.middleware.wsgi import Sentry
@@ -35,11 +32,6 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.production")
 # setting points here.
 application = get_wsgi_application()
 
-{% if cookiecutter.use_whitenoise == 'y' -%}
-# Use Whitenoise to serve static files
-# See: https://whitenoise.readthedocs.org/
-application = DjangoWhiteNoise(application)
-{%- endif %}
 {% if cookiecutter.use_sentry == "y" -%}
 if os.environ.get("DJANGO_SETTINGS_MODULE") == "config.settings.production":
     application = Sentry(application)

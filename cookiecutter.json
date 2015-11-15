@@ -8,7 +8,6 @@
     "version": "0.1.0",
     "timezone": "UTC",
     "now": "2015/09/30",
-    "use_whitenoise": "y",
     "use_celery": "n",
     "use_redis": "n",
     "use_allauth": "n",

@@ -5,9 +5,3 @@
 # WSGI Handler
 # ------------------------------------------------
 gunicorn==19.3.0
-
-# Static and Media Storage
-# ------------------------------------------------
-{% if cookiecutter.use_whitenoise != 'y' -%}
-Collectfast==0.2.3
-{%- endif %}
