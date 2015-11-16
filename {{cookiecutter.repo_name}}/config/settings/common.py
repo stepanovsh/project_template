@@ -96,7 +96,11 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
+        {% if cookiecutter.use_postgis == "y" %}
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        {% else %}
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        {% endif %}
         'NAME': '{{cookiecutter.repo_name}}',
         'USER': '',
         'PASSWORD': '',

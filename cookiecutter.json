@@ -11,5 +11,6 @@
     "use_celery": "n",
     "use_redis": "n",
     "use_allauth": "n",
-    "use_custom_user_model": "n"
+    "use_custom_user_model": "n",
+    "use_postgis": "n"
 }
