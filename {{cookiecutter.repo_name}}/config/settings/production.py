@@ -57,9 +57,6 @@ INSTALLED_APPS += ("gunicorn", )
 
 # Static Assets
 # ------------------------
-{% if cookiecutter.use_whitenoise == 'y' -%}
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-{% else %}
 STATIC_URL = MEDIA_URL
 
 # See: https://github.com/antonagestam/collectfast
@@ -67,7 +64,6 @@ STATIC_URL = MEDIA_URL
 # 'django.contrib.staticfiles'
 AWS_PRELOAD_METADATA = True
 INSTALLED_APPS = ('collectfast', ) + INSTALLED_APPS
-{%- endif %}
 
 # EMAIL
 # ------------------------------------------------------------------------------
@@ -90,6 +86,7 @@ TEMPLATES[0]['OPTIONS']['loaders'] = [
 # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
 DATABASES['default'] = env.db("DATABASE_URL")
 
+{% if cookiecutter.use_redis == "y" %}
 # CACHING
 # ------------------------------------------------------------------------------
 # Heroku URL does not pass the DB number, so we parse it in
@@ -104,7 +101,7 @@ CACHES = {
         }
     }
 }
-
+{% endif %}
 
 # LOGGING CONFIGURATION
 # ------------------------------------------------------------------------------

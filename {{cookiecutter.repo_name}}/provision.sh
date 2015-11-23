@@ -23,8 +23,15 @@ fi
 # Install postgresql
 /vagrant/sh/postgresql.sh
 
+{% if cookiecutter.use_redis == "y" %}
 # Install redis
 /vagrant/sh/redis.sh
+{% endif %}
+
+{% if cookiecutter.use_postgis == "y" %}
+# Install postgis
+/vagrant/sh/postgis.sh
+{% endif %}
 
 # Install bower
 /vagrant/sh/bower.sh

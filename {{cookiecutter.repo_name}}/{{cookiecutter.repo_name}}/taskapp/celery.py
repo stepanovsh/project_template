@@ -24,16 +24,6 @@ class CeleryConfig(AppConfig):
         app.config_from_object('django.conf:settings')
         app.autodiscover_tasks(lambda: settings.INSTALLED_APPS, force=True)
 
-        {% if cookiecutter.use_sentry == "y" -%}
-        if hasattr(settings, 'RAVEN_CONFIG'):
-            # Celery signal registration
-            from raven import Client
-            from raven.contrib.celery import register_signal
-            client = Client(dsn=settings.RAVEN_CONFIG['dsn'])
-            register_signal(client)
-        {%- endif %}
-
-
 @app.task(bind=True)
 def debug_task(self):
     print('Request: {0!r}'.format(self.request))  # pragma: no cover
