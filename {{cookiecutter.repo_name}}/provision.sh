@@ -28,11 +28,6 @@ fi
 /vagrant/sh/redis.sh
 {% endif %}
 
-{% if cookiecutter.use_postgis == "y" %}
-# Install postgis
-/vagrant/sh/postgis.sh
-{% endif %}
-
 {% if cookiecutter.use_rabbit == "y" or cookiecutter.use_celery == "y"  %}
 # Install rabbit
 /vagrant/sh/rabbitMQ.sh
