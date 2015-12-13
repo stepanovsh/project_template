@@ -12,9 +12,9 @@ Run next commands::
 
     $ cd vagrant
 
-    $ sudo pip install -r requirements/local.txt
-
     $ sudo pip install -U pip setuptools
+
+    $ sudo pip install -r requirements/local.txt
 
     $ sudo -u postgres createuser -s vagrant
 

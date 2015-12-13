@@ -33,6 +33,16 @@ fi
 /vagrant/sh/postgis.sh
 {% endif %}
 
+{% if cookiecutter.use_rabbit == "y" or cookiecutter.use_celery == "y"  %}
+# Install rabbit
+/vagrant/sh/rabbitMQ.sh
+{% endif %}
+
+{% if cookiecutter.use_memcached == "y" %}
+# Install memcached
+/vagrant/sh/memcached.sh
+{% endif %}
+
 # Install bower
 /vagrant/sh/bower.sh
 
