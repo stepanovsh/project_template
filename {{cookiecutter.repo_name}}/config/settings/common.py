@@ -61,7 +61,6 @@ MIDDLEWARE_CLASSES = (
 # MIGRATIONS CONFIGURATION
 # ------------------------------------------------------------------------------
 MIGRATION_MODULES = {
-    'sites': '{{ cookiecutter.repo_name }}.contrib.sites.migrations'
 }
 
 # DEBUG
