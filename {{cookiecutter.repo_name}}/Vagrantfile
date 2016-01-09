@@ -12,7 +12,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Use NFS for shared folders for better performance
      config.vm.synced_folder '.', '/vagrant', nfs: true
 
-    config.vm.provision :shell, :path => "provision.sh"
+    # config.vm.provision :shell, :path => "provision.sh"
+    config.vm.provision "ansible" do |ansible|
+        ansible.playbook = "ansible/vagrant.yml"
+        ansible.verbose = "v"
+    end
 
     config.vm.provider "virtualbox" do |v|
       host = RbConfig::CONFIG['host_os']
