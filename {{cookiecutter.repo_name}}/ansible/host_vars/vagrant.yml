@@ -1,5 +1,5 @@
 ---
-
+{% raw %}
 # Database settings.
 db_user: "vagrant"
 db_name: "{{ application_name }}"
@@ -16,3 +16,4 @@ django_settings: "config.settings.local"
 # Path for .env file
 #env_dev: "../env.yml"
 #env_path: "{{ django_settings_path }}/.env"
+{% endraw %}
