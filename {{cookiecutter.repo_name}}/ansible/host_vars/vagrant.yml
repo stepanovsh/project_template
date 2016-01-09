@@ -1,9 +1,9 @@
 ---
 
 # Database settings.
-db_user: "vagrant"
-db_name: "{{ application_name }}"
-db_password: ""
+postgres_db_user: "vagrant"
+postgres_db_name: "{{ application_name }}"
+postgres_db_password: ""
 
 
 # Application settings.
@@ -14,5 +14,5 @@ django_settings_path: "{{ project_path }}/config/settings"
 django_settings: "config.settings.local"
 
 # Path for .env file
-env_dev: "../env.yml"
-env_path: "{{ django_settings_path }}/.env"
+#env_dev: "../env.yml"
+#env_path: "{{ django_settings_path }}/.env"
