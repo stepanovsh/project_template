@@ -1,5 +1,5 @@
 ---
-
+{% raw %}
 - name: Create a {{ application_name }} virtual machine via vagrant
   hosts: all
   sudo: yes
@@ -19,3 +19,4 @@
     - redis
     - bower
     - app
+{% endraw %}

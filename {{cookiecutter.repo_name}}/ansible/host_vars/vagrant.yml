@@ -1,9 +1,9 @@
 ---
 
 # Database settings.
-postgres_db_user: "vagrant"
-postgres_db_name: "{{ application_name }}"
-postgres_db_password: ""
+db_user: "vagrant"
+db_name: "{{ application_name }}"
+db_password: ""
 
 
 # Application settings.

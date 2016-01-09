@@ -1,5 +1,5 @@
 ---
-
+{% raw %}
 - name: Update Common Cache
   apt: update_cache=yes
 
@@ -45,3 +45,4 @@
     - tk8.5-dev
     - python-tk
   tags: packages
+{% endraw %}
