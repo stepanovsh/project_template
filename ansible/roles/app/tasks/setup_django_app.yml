@@ -1,0 +1,42 @@
+---
+
+- name: Install packages required by the Django app inside virtualenv
+  pip: virtualenv={{ virtualenv_path }} requirements={{ requirements_file }}
+
+- name: import secret variable file
+  include_vars: "{{ env_dev }}"
+
+- name: Copy .env
+  copy:
+    content: "{{ private_keys }}"
+    dest: "{{ env_path }}"
+  tags: env.copy
+
+
+- name: Run Django database migrations
+  sudo_user: postgres
+  django_manage:
+    command: migrate
+    app_path: "{{ project_path }}"
+    virtualenv: "{{ virtualenv_path }}"
+    settings: "{{ django_settings }}"
+  when: run_django_db_migrations is defined and run_django_db_migrations
+  tags: django.migrate
+
+- name: Run Django bower install
+  django_manage:
+    command: bower install
+    app_path: "{{ project_path }}"
+    virtualenv: "{{ virtualenv_path }}"
+    settings: "{{ django_settings }}"
+  tags: django.bower
+
+- name: Run Django filldb
+  sudo_user: postgres
+  django_manage:
+    command: filldb
+    app_path: "{{ project_path }}"
+    virtualenv: "{{ virtualenv_path }}"
+    settings: "{{ django_settings }}"
+  when: run_django_filldb is defined and run_django_filldb
+  tags: django.filldb
