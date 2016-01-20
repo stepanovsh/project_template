@@ -1,5 +1,5 @@
 ---
-
+{% raw %}
 - name: Install Redis
   apt: name={{ item }} update_cache={{ update_apt_cache }} state=installed
   with_items:
@@ -9,3 +9,4 @@
 - name: Ensure Redis server is running
   sudo: yes
   action: service name=redis-server state=started
+{% endraw %}

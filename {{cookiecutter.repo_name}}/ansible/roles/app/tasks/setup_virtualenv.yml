@@ -1,5 +1,5 @@
 ---
-
+{% raw %}
 - name: Create the virtualenv
   command: virtualenv {{ virtualenv_path }} --no-site-packages
            creates={{ virtualenv_path }}/bin/activate
@@ -12,3 +12,4 @@
 
 - name: Update setuptools
   pip: virtualenv={{ virtualenv_path }} name=setuptools state=latest
+{% endraw %}

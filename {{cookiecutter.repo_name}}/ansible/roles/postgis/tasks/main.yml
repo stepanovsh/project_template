@@ -1,5 +1,5 @@
 ---
-
+{% raw %}
 - name: Install PostGIS
   apt: name={{ item }} update_cache=yes state=installed
   with_items:
@@ -24,3 +24,4 @@
 
   tags:
     postgis
+{% endraw %}

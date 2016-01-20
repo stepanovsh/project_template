@@ -1,5 +1,5 @@
 ---
-
+{% raw %}
 - name: Remove Launchpad PPA Repository for NodeJS...
   apt_repository: repo='{{item}}' state=absent
   with_items:
@@ -25,3 +25,4 @@
 - name: Install bower
   sudo: yes
   command: npm install -g bower
+{% endraw %}

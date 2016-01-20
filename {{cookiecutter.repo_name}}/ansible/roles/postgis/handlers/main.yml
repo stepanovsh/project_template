@@ -1,5 +1,5 @@
 ---
-
+{% raw %}
 - name: convert database to postgis
   sudo_user: postgres
   command: psql -d {{ db_name }} -c "CREATE EXTENSION postgis;"
@@ -7,3 +7,4 @@
 - name: convert database to postgis topology
   sudo_user: postgres
   command: psql -d {{ db_name }} -c "CREATE EXTENSION postgis_topology;"
+{% endraw %}
