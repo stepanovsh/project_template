@@ -14,11 +14,11 @@ urlpatterns = [
     # Django Admin, use {% raw %}{% url 'admin:index' %}{% endraw %}
     url(settings.ADMIN_URL, include(admin.site.urls)),
 
-    {% if cookiecutter.use_custom_user_model.lower() == 'y' -%}
+    {%- if cookiecutter.use_custom_user_model.lower() == 'y' -%}
     # User management
     url(r'^users/', include("{{ cookiecutter.repo_name }}.users.urls", namespace="users")),
     {%- endif %}
-    {% if cookiecutter.use_allauth == 'y' -%}
+    {%- if cookiecutter.use_allauth == 'y' -%}
     url(r'^accounts/', include('allauth.urls')),
     {%- endif %}
 
