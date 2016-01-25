@@ -1,6 +1,6 @@
 ---
+- name: Create a {{cookiecutter.repo_name}} virtual machine via vagrant
 {% raw %}
-- name: Create a {{ application_name }} virtual machine via vagrant
   hosts: all
   sudo: yes
   sudo_user: root

@@ -1,6 +1,4 @@
 ---
 
-# git_repo: git@git.steelkiwi.com:web/taxgrove.git
-
 project_name: {{cookiecutter.repo_name}}
 application_name: {{cookiecutter.repo_name}}
