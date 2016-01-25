@@ -21,6 +21,7 @@
     settings: "{{ django_settings }}"
   tags: django.bower
 
+# ToDo if add fill db
 #- name: Run Django filldb
 #  sudo_user: postgres
 #  django_manage:

@@ -13,7 +13,4 @@ requirements_file: "{{ project_path }}/requirements/local.txt"
 django_settings_path: "{{ project_path }}/config/settings"
 django_settings: "config.settings.local"
 
-# Path for .env file
-#env_dev: "../env.yml"
-#env_path: "{{ django_settings_path }}/.env"
 {% endraw %}
