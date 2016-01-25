@@ -16,15 +16,16 @@
     - postgresql
     {%- if cookiecutter.use_postgis == "y" -%}
     - postgis
-    {%- endif -%}
+    {%- endif %}
     {%- if cookiecutter.use_redis == "y" -%}
     - redis
-    {%- endif -%}
+    {%- endif %}
     {%- if cookiecutter.use_rabbit == "y" or cookiecutter.use_celery == "y"  -%}
     - rabbitmq
-    {%- endif -%}
+    {%- endif %}
     {%- if cookiecutter.use_memcached == "y" -%}
     - memcached
-    {%- endif -%}
+    {%- endif %}
     - bower
     - app
+rstrip
