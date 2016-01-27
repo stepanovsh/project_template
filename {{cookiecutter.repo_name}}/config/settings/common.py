@@ -35,7 +35,6 @@ DJANGO_APPS = (
     'django.contrib.admin',
 )
 THIRD_PARTY_APPS = (
-    'crispy_forms',  # Form layouts
 )
 
 # Apps specific for this project go here.
@@ -214,7 +213,6 @@ AUTHENTICATION_BACKENDS = (
 INSTALLED_APPS += (
     'allauth',  # registration
     'allauth.account',  # registration
-    'allauth.socialaccount',  # registration
     )
 AUTHENTICATION_BACKENDS += ('allauth.account.auth_backends.AuthenticationBackend',)
 ACCOUNT_AUTHENTICATION_METHOD = 'username'

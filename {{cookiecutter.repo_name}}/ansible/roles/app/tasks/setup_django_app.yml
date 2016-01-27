@@ -13,13 +13,14 @@
   when: run_django_db_migrations is defined and run_django_db_migrations
   tags: django.migrate
 
-- name: Run Django bower install
-  django_manage:
-    command: bower install
-    app_path: "{{ project_path }}"
-    virtualenv: "{{ virtualenv_path }}"
-    settings: "{{ django_settings }}"
-  tags: django.bower
+# ToDo if add django bower
+#- name: Run Django bower install
+#  django_manage:
+#    command: bower install
+#    app_path: "{{ project_path }}"
+#    virtualenv: "{{ virtualenv_path }}"
+#    settings: "{{ django_settings }}"
+#  tags: django.bower
 
 # ToDo if add fill db
 #- name: Run Django filldb
