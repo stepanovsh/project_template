@@ -214,6 +214,7 @@ AUTHENTICATION_BACKENDS = (
 INSTALLED_APPS += (
     'allauth',  # registration
     'allauth.account',  # registration
+    'allauth.socialaccount',  # registration
     )
 AUTHENTICATION_BACKENDS += ('allauth.account.auth_backends.AuthenticationBackend',)
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
