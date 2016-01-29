@@ -86,7 +86,7 @@ TEMPLATES[0]['OPTIONS']['loaders'] = [
 # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
 DATABASES['default'] = env.db("DATABASE_URL")
 
-{% if cookiecutter.use_redis == "y" %}
+{%- if cookiecutter.use_redis == "y" -%}
 # CACHING
 # ------------------------------------------------------------------------------
 # Heroku URL does not pass the DB number, so we parse it in
@@ -101,7 +101,7 @@ CACHES = {
         }
     }
 }
-{% endif %}
+{%- endif %}
 
 # LOGGING CONFIGURATION
 # ------------------------------------------------------------------------------

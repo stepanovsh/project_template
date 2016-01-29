@@ -35,7 +35,7 @@ DJANGO_APPS = (
     'django.contrib.admin',
 )
 THIRD_PARTY_APPS = (
-    'crispy_forms',  # Form layouts
+    'crispy_forms',
 )
 
 # Apps specific for this project go here.
@@ -95,11 +95,11 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        {% if cookiecutter.use_postgis == "y" %}
+        {%- if cookiecutter.use_postgis == "y" -%}
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        {% else %}
+        {%- else %}
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        {% endif %}
+        {%- endif %}
         'NAME': '{{cookiecutter.repo_name}}',
         'USER': '',
         'PASSWORD': '',
@@ -209,7 +209,7 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-{% if cookiecutter.use_allauth == 'y' -%}
+{%- if cookiecutter.use_allauth == 'y' -%}
 # Some really nice defaults
 INSTALLED_APPS += (
     'allauth',  # registration
@@ -222,7 +222,7 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 {%- endif %}
 
-{% if cookiecutter.use_custom_user_model == 'y' -%}
+{%- if cookiecutter.use_custom_user_model == 'y' -%}
 # Custom user app defaults
 # Select the correct user model
 INSTALLED_APPS += ('{{ cookiecutter.repo_name }}.users',)
@@ -233,14 +233,15 @@ LOGIN_URL = 'account_login'
 
 # SLUGLIFIER
 AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
-{% if cookiecutter.use_celery == "y" %}
+
+{%- if cookiecutter.use_celery == "y" %}
 ########## CELERY
 INSTALLED_APPS += ('{{cookiecutter.repo_name}}.taskapp.celery.CeleryConfig',)
 # if you are not using the django database broker (e.g. rabbitmq, redis, memcached), you can remove the next line.
 INSTALLED_APPS += ('kombu.transport.django',)
 BROKER_URL = env("CELERY_BROKER_URL", default='django://')
 ########## END CELERY
-{% endif %}
+{%- endif %}
 
 # Location of root django.contrib.admin URL, use {% raw %}{% url 'admin:index' %}{% endraw %}
 ADMIN_URL = r'^admin/'
