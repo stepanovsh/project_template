@@ -2,8 +2,8 @@
 - name: Create a {{cookiecutter.repo_name}} virtual machine via vagrant
 {% raw %}
   hosts: all
-  sudo: yes
-  sudo_user: root
+  become: yes
+  become_user: root
   remote_user: vagrant
   vars:
     - update_apt_cache: yes

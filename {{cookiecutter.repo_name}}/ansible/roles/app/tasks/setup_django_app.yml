@@ -1,9 +1,11 @@
 ---
 {% raw %}
 - name: Install packages required by the Django app inside virtualenv
+  become: no
   pip: virtualenv={{ virtualenv_path }} requirements={{ requirements_file }}
 
 - name: Run Django database migrations
+  become: no
   sudo_user: postgres
   django_manage:
     command: migrate
@@ -15,6 +17,7 @@
 
 # ToDo if add django bower
 #- name: Run Django bower install
+#  become: no
 #  django_manage:
 #    command: bower install
 #    app_path: "{{ project_path }}"
@@ -24,7 +27,7 @@
 
 # ToDo if add fill db
 #- name: Run Django filldb
-#  sudo_user: postgres
+#  become: no
 #  django_manage:
 #    command: filldb
 #    app_path: "{{ project_path }}"
