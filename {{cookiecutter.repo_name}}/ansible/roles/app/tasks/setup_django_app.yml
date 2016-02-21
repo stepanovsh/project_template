@@ -6,7 +6,6 @@
 
 - name: Run Django database migrations
   become: no
-  sudo_user: postgres
   django_manage:
     command: migrate
     app_path: "{{ project_path }}"
