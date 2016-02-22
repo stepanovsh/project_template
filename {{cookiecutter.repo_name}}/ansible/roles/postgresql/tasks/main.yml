@@ -14,7 +14,7 @@
   apt: name={{ item }} force=yes state=installed
   with_items:
     - postgresql-9.4
-    - postgresql-contrib
+    - postgresql-contrib-9.4
     - python-psycopg2
   tags: packages
 
