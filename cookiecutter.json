@@ -7,7 +7,6 @@
     "domain_name": "example.com",
     "version": "0.1.0",
     "timezone": "UTC",
-    "use_python2": "y",
     "year": "2015",
     "now": "2015/09/30",
     "use_celery": "n",
@@ -17,4 +16,5 @@
     "use_postgis": "n",
     "use_rabbit": "n",
     "use_memcached": "n",
+    "use_python2": "y"
 }
